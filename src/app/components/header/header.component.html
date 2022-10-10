@@ -1,0 +1,39 @@
+<nav class="navbar bg-light">
+  <div
+    class="container-fluid d-flex flex-column align-items-center justify-content-center flex-md-row align-items-md-between justify-content-md-between gap-3"
+  >
+    <a class="navbar-brand" href="#"
+      ><img src="../../../assets/img/logo_f.gif" alt="logo"
+    /></a>
+    <form class="d-flex flex-grow-1" role="search">
+      <div class="input-group">
+        <input
+          class="form-control rounded-pill"
+          type="search"
+          placeholder="Cauta dupa titlu..."
+          aria-label="Search"
+        />
+        <button class="btn btn-link" type="submit">
+          <fa-icon
+            [ngStyle]="{ color: 'red' }"
+            [icon]="faMagnifying"
+            size="1x"
+          ></fa-icon>
+        </button>
+      </div>
+    </form>
+
+    <button type="button" class="btn btn-link position-relative">
+      <fa-icon
+        [ngStyle]="{ color: '#0F1E5B' }"
+        [icon]="faCart"
+        size="2x"
+      ></fa-icon>
+      <span
+        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+      >
+        3
+      </span>
+    </button>
+  </div>
+</nav>
