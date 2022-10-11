@@ -1,6 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Book } from 'src/app/core/interfaces/book.interface';
 import { BookStoreService } from 'src/app/store/book-store.service';
 
 @Component({
@@ -21,12 +21,33 @@ export class AddBookFormComponent implements OnInit {
     imageUrl: new FormControl('', Validators.required),
   });
 
-  constructor(private bookStore: BookStoreService) {}
+  constructor(private bookStore: BookStoreService, private http: HttpClient) {}
 
   ngOnInit(): void {}
 
   onFormSubmit() {
-    console.log(this.addBookForm.value);
     // this.bookStore.addNewBook(this.addBookForm.value);
+    this.http
+      .post(
+        'https://bookshop-d4231-default-rtdb.firebaseio.com/books.json',
+        this.addBookForm.value
+      )
+      .subscribe();
+
+    this._resetForm();
+  }
+
+  private _resetForm() {
+    this.addBookForm.reset({
+      title: '',
+      author: '',
+      publisher: '',
+      releaseYear: '',
+      pageNumber: '',
+      isbn: '',
+      description: '',
+      price: '',
+      imageUrl: '',
+    });
   }
 }

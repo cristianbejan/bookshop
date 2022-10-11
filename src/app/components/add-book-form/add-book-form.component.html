@@ -1,4 +1,4 @@
-<div class="container bg-light mb-3">
+<div class="container bg-light mb-3 mt-5">
   <form [formGroup]="addBookForm" (ngSubmit)="onFormSubmit()">
     <label for="title" class="form-label">Titlu: </label>
     <input
@@ -54,6 +54,7 @@
     <input
       type="number"
       id="price"
+      step="0.01"
       class="form-control form-control-sm"
       formControlName="price"
     />
