@@ -9,15 +9,7 @@ import { Book } from 'src/app/core/interfaces/book.interface';
 export class BookCardComponent implements OnInit {
   @Input() book: Book;
 
-  priceToFixed: string;
-
   constructor() {}
 
-  ngOnInit(): void {
-    this.priceTransform();
-  }
-
-  priceTransform() {
-    this.priceToFixed = this.book.price.toFixed(2);
-  }
+  ngOnInit(): void {}
 }

@@ -23,7 +23,9 @@
 
               {{ book.author }}
             </P>
-            <h3 class="card-text fw-bold mb-3">{{ priceToFixed }} lei</h3>
+            <h3 class="card-text fw-bold mb-3">
+              {{ book.price | number: "1.2-2" }} lei
+            </h3>
             <a class="btn btn-light rounded-pill mt-3 mb-3 px-4 py-3"
               >Adauga in cos</a
             >

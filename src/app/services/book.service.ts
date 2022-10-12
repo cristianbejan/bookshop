@@ -27,18 +27,6 @@ export class BookService {
       })
     );
   }
-
-  getBookById(id: string): Observable<Book[]> {
-    return this.http.get<{ [key: string]: Book }>(this.baseUrl).pipe(
-      map((responseData) => {
-        const booksArray: Book[] = [];
-        for (const key in responseData) {
-          booksArray.push({ ...responseData[key], id: key });
-        }
-        return booksArray.filter((item) => item.id === id);
-      })
-    );
-  }
 }
 
 // ?orderBy="$key"&equalTo="id"

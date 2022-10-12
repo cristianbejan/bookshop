@@ -11,12 +11,12 @@ export class BookStoreService {
   private addBook$ = new Subject<Book>();
 
   constructor(private bookService: BookService) {
-    this.addBook$.subscribe((newBook) =>
-      this.books$.next([...this.books$.getValue(), newBook])
-    );
     this.bookService.getBooks().subscribe((books) => {
       this.books$.next(books);
     });
+    this.addBook$.subscribe((newBook) =>
+      this.books$.next([...this.books$.getValue(), newBook])
+    );
   }
 
   addNewBook(book: Book) {
