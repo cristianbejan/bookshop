@@ -1,1 +1,98 @@
-<p>book-details works!</p>
+<div class="container bg-light">
+  <div class="row row-cols-1">
+    <div class="col bg-danger p-3">
+      <div
+        class="d-flex flex-column flex-md-row justify-content-center align-items-center ms-5 p-3"
+      >
+        <div class="flex-shrink-0">
+          <img
+            src="{{ book.imageUrl }}"
+            alt="{{ book.title }}"
+            class="text-start img-fluid"
+            style="width: 340px"
+          />
+        </div>
+        <div
+          class="card border border-0 bg-danger text-light flex-grow-1 ms-md-4"
+          style="width: 100%"
+        >
+          <div class="card-body">
+            <h1 class="card-title fw-bold mb-3">{{ book.title }}</h1>
+            <P class="lead card-subtitle text-opacity-25 mb-5 mb-3">
+              de
+
+              {{ book.author }}
+            </P>
+            <h3 class="card-text fw-bold mb-3">{{ priceToFixed }} lei</h3>
+            <a class="btn btn-light rounded-pill mt-3 mb-3 px-4 py-3"
+              >Adauga in cos</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col my-2 p-5 ms-5">
+      <nav class="container-fluid mb-3">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button
+            class="active btn btn-outline-danger rounded-pill me-3 mb-2"
+            id="nav-description-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-description"
+            type="button"
+            role="tab"
+            aria-controls="nav-description"
+            aria-selected="true"
+          >
+            Descriere
+          </button>
+          <button
+            class="btn btn-outline-danger rounded-pill mb-2"
+            id="nav-details-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-details"
+            type="button"
+            role="tab"
+            aria-controls="nav-details"
+            aria-selected="false"
+          >
+            Detalii tehnice
+          </button>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div
+          class="tab-pane fade show active"
+          id="nav-description"
+          role="tabpanel"
+          aria-labelledby="nav-description-tab"
+          tabindex="0"
+        >
+          {{ book.description }}
+        </div>
+        <div
+          class="tab-pane fade"
+          id="nav-details"
+          role="tabpanel"
+          aria-labelledby="nav-details-tab"
+          tabindex="0"
+        >
+          <ul class="list-group list-group-flush bg-light w-50">
+            <li class="list-group-item list-group-item-light">
+              Editura: {{ book.publisher }}
+            </li>
+            <li class="list-group-item list-group-item-light">
+              ISBN: {{ book.isbn }}
+            </li>
+            <li class="list-group-item list-group-item-light">
+              An publicare: {{ book.releaseYear }}
+            </li>
+            <li class="list-group-item list-group-item-light">
+              Numar pagini: {{ book.pageNumber }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,26 +9,36 @@ import { map, Observable } from 'rxjs';
 export class BookService {
   constructor(private http: HttpClient) {}
 
+  baseUrl = 'https://bookshop-d4231-default-rtdb.firebaseio.com/books.json';
+
   addNewBook(payload: Book): Observable<Book> {
-    return this.http.post<Book>(
-      'https://bookshop-d4231-default-rtdb.firebaseio.com/books.json',
-      payload
-    );
+    return this.http.post<Book>(this.baseUrl, payload);
   }
 
   getBooks(): Observable<Book[]> {
-    return this.http
-      .get<{ [key: string]: Book }>(
-        'https://bookshop-d4231-default-rtdb.firebaseio.com/books.json'
-      )
-      .pipe(
-        map((responseData) => {
-          const booksArray: Book[] = [];
-          for (const key in responseData) {
-            booksArray.push({ ...responseData[key], id: key });
-          }
-          return booksArray;
-        })
-      );
+    return this.http.get<{ [key: string]: Book }>(this.baseUrl).pipe(
+      map((responseData) => {
+        const booksArray: Book[] = [];
+        for (const key in responseData) {
+          booksArray.push({ ...responseData[key], id: key });
+        }
+
+        return booksArray;
+      })
+    );
+  }
+
+  getBookById(id: string): Observable<Book[]> {
+    return this.http.get<{ [key: string]: Book }>(this.baseUrl).pipe(
+      map((responseData) => {
+        const booksArray: Book[] = [];
+        for (const key in responseData) {
+          booksArray.push({ ...responseData[key], id: key });
+        }
+        return booksArray.filter((item) => item.id === id);
+      })
+    );
   }
 }
+
+// ?orderBy="$key"&equalTo="id"
