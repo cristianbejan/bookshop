@@ -1,0 +1,29 @@
+.list-group a:hover {
+  color: #dc3545 !important;
+}
+
+#footer-logo img {
+  max-height: 60px;
+  max-width: 230px;
+}
+
+#footer-logo a {
+  display: table;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #9498a7;
+  border: 1px solid #6c757d;
+}
+
+#footer-logo a:hover {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: white;
+}
+
+#footer-logo fa-icon {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}

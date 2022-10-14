@@ -28,5 +28,3 @@ export class BookService {
     );
   }
 }
-
-// ?orderBy="$key"&equalTo="id"

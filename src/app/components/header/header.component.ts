@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import {
   faCartShopping,
   faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
+import { Book } from 'src/app/core/interfaces/book.interface';
+import { BookStoreService } from 'src/app/store/book-store.service';
 import { DataStoreService } from 'src/app/store/data-store.service';
 
 @Component({
@@ -16,14 +19,33 @@ export class HeaderComponent implements OnInit {
   faMagnifying = faMagnifyingGlass;
 
   //get value from search input
-  inputValue = new FormControl('');
+  searchQuery = new FormControl('', Validators.required);
 
-  constructor(private dataStore: DataStoreService) {}
+  constructor(
+    private dataStore: DataStoreService,
+    private bookStore: BookStoreService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
-  // on submit, pass the value from search input to BehaviorSubject (update BS value)
   onSearch() {
-    this.dataStore.newInputData(this.inputValue.value.toLowerCase());
+    if (this.searchQuery.value) {
+      // gett books filtered by title
+      this.bookStore.books$.subscribe((books) => {
+        let filteredBooksArr: Book[] = [];
+        for (const key in books) {
+          if (books[key].title.toLowerCase().includes(this.searchQuery.value)) {
+            filteredBooksArr.push(books[key]);
+          }
+        }
+        this.dataStore.newFilteredBookArr(filteredBooksArr); //pass new value to BehaviorSubject
+        this.goToSearchResults();
+      });
+    }
+  }
+
+  goToSearchResults() {
+    this.router.navigate(['search-results']);
   }
 }

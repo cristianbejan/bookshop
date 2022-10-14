@@ -11,6 +11,8 @@ import { AddBookFormComponent } from './components/add-book-form/add-book-form.c
 import { MainComponent } from './components/main/main.component';
 import { BookCardComponent } from './components/main/book-card/book-card.component';
 import { BookDetailsComponent } from './components/main/book-details/book-details.component';
+import { SearchResultsComponent } from './components/main/search-results/search-results.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { BookDetailsComponent } from './components/main/book-details/book-detail
     MainComponent,
     BookCardComponent,
     BookDetailsComponent,
+    SearchResultsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

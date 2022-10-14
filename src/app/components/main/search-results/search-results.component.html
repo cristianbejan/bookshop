@@ -1,0 +1,15 @@
+<div
+  class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-7 mt-3 mb-3"
+>
+  <div
+    *ngIf="filteredBooks.length === 0"
+    class="alert alert-danger ms-3"
+    role="alert"
+  >
+    Nu exista carti cu acest titlu.
+  </div>
+  <app-book-card
+    *ngFor="let book of filteredBooks"
+    [book]="book"
+  ></app-book-card>
+</div>
