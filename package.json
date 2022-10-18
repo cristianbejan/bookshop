@@ -14,6 +14,7 @@
     "@angular/common": "^14.2.0",
     "@angular/compiler": "^14.2.0",
     "@angular/core": "^14.2.0",
+    "@angular/fire": "^7.4.1",
     "@angular/forms": "^14.2.0",
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
@@ -25,6 +26,9 @@
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.2",
+    "firebase": "^9.12.1",
+    "firebaseui": "^6.0.1",
+    "firebaseui-angular": "^6.1.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

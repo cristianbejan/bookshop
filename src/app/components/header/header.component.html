@@ -23,19 +23,33 @@
         </button>
       </div>
     </form>
-
-    <button type="button" class="btn btn-link position-relative">
-      <fa-icon
-        [ngStyle]="{ color: '#0F1E5B' }"
-        [icon]="faCart"
-        size="2x"
-      ></fa-icon>
-      <span
-        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+    <div class="align-self-end">
+      <button type="button" class="btn btn-link position-relative m-3">
+        <fa-icon
+          [ngStyle]="{ color: '#0F1E5B' }"
+          [icon]="faCart"
+          size="2x"
+        ></fa-icon>
+        <span
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+        >
+          3
+        </span>
+      </button>
+      <a
+        *ngIf="!(isLoggedIn$ | async)"
+        routerLink="log-in"
+        class="btn btn-danger rounded-pill ms-3 px-3 py-2"
+        >Conectare</a
       >
-        3
-      </span>
-    </button>
+      <a
+        *ngIf="isLoggedIn$ | async"
+        class="btn btn-danger rounded-pill ms-3 px-3 py-2"
+        (click)="authService.signOut()"
+        routerLink="sign-in"
+        >Deconectare</a
+      >
+    </div>
   </div>
 </nav>
 <hr />

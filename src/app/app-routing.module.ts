@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddBookFormComponent } from './components/add-book-form/add-book-form.component';
+import { LoginComponent } from './components/login/login.component';
 import { BookDetailsComponent } from './components/main/book-details/book-details.component';
 import { MainComponent } from './components/main/main.component';
 import { SearchResultsComponent } from './components/main/search-results/search-results.component';
+import { UserDashboardComponent } from './components/main/user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
   { path: 'home', component: MainComponent },
   { path: 'book/:id/:title', component: BookDetailsComponent },
   { path: 'add-book-form', component: AddBookFormComponent },
   { path: 'search-results', component: SearchResultsComponent },
+  { path: 'log-in', component: LoginComponent },
+  { path: 'user-profile', component: UserDashboardComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

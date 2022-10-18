@@ -5,7 +5,10 @@ import {
   faCartShopping,
   faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
+import { map, Observable } from 'rxjs';
 import { Book } from 'src/app/core/interfaces/book.interface';
+import { User } from 'src/app/core/interfaces/user.interface';
+import { AuthService } from 'src/app/services/auth.service';
 import { BookStoreService } from 'src/app/store/book-store.service';
 import { DataStoreService } from 'src/app/store/data-store.service';
 
@@ -24,8 +27,13 @@ export class HeaderComponent implements OnInit {
   constructor(
     private dataStore: DataStoreService,
     private bookStore: BookStoreService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
+
+  isLoggedIn$: Observable<boolean> = this.authService.user$
+    .asObservable()
+    .pipe(map((user) => !!user));
 
   ngOnInit(): void {}
 
