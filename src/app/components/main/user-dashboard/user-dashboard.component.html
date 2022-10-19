@@ -1,5 +1,5 @@
 <div class="container">
-  <div *ngIf="userData" class="card border-secondary mb-3" style="height: 40vh">
+  <div *ngIf="userData" class="card border-secondary mb-3" style="height: 45vh">
     <div class="row g-0 h-100">
       <div class="col-md-4 d-flex justify-content-center align-items-center">
         <img
@@ -13,22 +13,30 @@
       </div>
       <div class="col-md-8 d-flex justify-content-center align-items-center">
         <div class="card-body">
-          <h2 class="card-title">
+          <h3 class="card-title">
             Bine ai venit,
             <strong>
-              {{ userData?.displayName ? userData?.displayName : "" }}
+              {{ userData?.displayName || "" }}
             </strong>
-          </h2>
+          </h3>
           <p class="card-text">
             Email: <strong>{{ userData?.email }}</strong>
           </p>
-          <p *ngIf="userData?.isAdmin" class="card-text">
-            <strong>Administrator</strong>
-          </p>
+          <div *ngIf="userData?.isAdmin">
+            <p class="card-text">
+              <strong>Administrator</strong>
+            </p>
+            <a
+              [routerLink]="['/admin']"
+              class="btn btn-danger btn-sm rounded-pill px-3 py-2 mb-3"
+              >Pagina admin</a
+            >
+          </div>
         </div>
       </div>
     </div>
   </div>
+
   <button class="btn btn-outline-danger" type="button" (click)="onLogout()">
     {{ userData ? "Deconectare" : "Conectare" }}
   </button>

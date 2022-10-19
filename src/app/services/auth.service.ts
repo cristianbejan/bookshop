@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { User } from '../core/interfaces/user.interface';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
@@ -13,12 +13,16 @@ export class AuthService {
   user$ = new BehaviorSubject<User>(null);
   currentUser = this.user$.asObservable();
 
+  isLoggedIn$: Observable<boolean> = this.user$
+    .asObservable()
+    .pipe(map((user) => Boolean(user)));
+
   constructor(
     private angularFireAuth: AngularFireAuth,
     private router: Router
   ) {
     this.angularFireAuth.authState.subscribe((user: User) => {
-      this.onUserSignin(user);
+      return user && this.onUserSignin(user);
     });
   }
 

@@ -1,0 +1,67 @@
+<div class="container">
+  <a
+    [routerLink]="['/admin/items/add-book']"
+    class="btn btn-outline-success mb-3"
+    >Adauga o carte noua</a
+  >
+</div>
+
+<form role="search" (ngSubmit)="onSearch()">
+  <div class="input-group mt-3 w-50">
+    <label for="search">Cauta un titlu: </label>
+    <input
+      class="form-control form-control-sm ms-3"
+      type="search"
+      id="search"
+      [formControl]="searchQuery"
+    />
+    <button
+      class="btn btn-info btn-sm"
+      type="submit"
+      [disabled]="searchQuery.invalid"
+    >
+      Cauta
+    </button>
+  </div>
+</form>
+
+<button
+  *ngIf="showGoBack"
+  class="btn btn-secondary mt-5"
+  type="button"
+  (click)="goBack()"
+>
+  <fa-icon
+    [ngStyle]="{ color: 'white' }"
+    [icon]="faCircleArrowLeft"
+    size="1x"
+  ></fa-icon>
+  Inapoi la lista
+</button>
+
+<div class="table-responsive">
+  <table
+    class="table table-light table-striped table-hover align-middle table-sm mt-5"
+  >
+    <thead class="table-warning">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Titlu</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Editura</th>
+        <th scope="col" class="text-center">Pret</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <th scope="row">
+          <button class="btn btn-info btn-sm">Editeaza</button>
+        </th>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.publisher }}</td>
+        <td class="text-end">{{ book.price | number: "1.2-2" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

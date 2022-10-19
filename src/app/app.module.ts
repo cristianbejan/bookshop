@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AddBookFormComponent } from './components/add-book-form/add-book-form.component';
+import { AddBookFormComponent } from './components/admin-center/add-book-form/add-book-form.component';
 import { MainComponent } from './components/main/main.component';
 import { BookCardComponent } from './components/main/book-card/book-card.component';
 import { BookDetailsComponent } from './components/main/book-details/book-details.component';
@@ -16,11 +16,13 @@ import { LoginComponent } from './components/login/login.component';
 import { UserDashboardComponent } from './components/main/user-dashboard/user-dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { firebase, firebaseui, FirebaseUIModule } from 'firebaseui-angular';
+import { firebase, FirebaseUIModule } from 'firebaseui-angular';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
+import { AdminCenterComponent } from './components/admin-center/admin-center.component';
+import { ItemsComponent } from './components/admin-center/items/items.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -45,6 +47,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     FooterComponent,
     LoginComponent,
     UserDashboardComponent,
+    AdminCenterComponent,
+    ItemsComponent,
   ],
   imports: [
     BrowserModule,

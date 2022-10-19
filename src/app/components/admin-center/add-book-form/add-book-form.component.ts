@@ -27,12 +27,13 @@ export class AddBookFormComponent implements OnInit {
 
   onFormSubmit() {
     // this.bookStore.addNewBook(this.addBookForm.value);
-    this.http
-      .post(
-        'https://bookshop-d4231-default-rtdb.firebaseio.com/books.json',
-        this.addBookForm.value
-      )
-      .subscribe();
+    // this.http
+    //   .post(
+    //     'https://bookshop-d4231-default-rtdb.firebaseio.com/books.json',
+    //     this.addBookForm.value
+    //   )
+    //   .subscribe();
+    console.log('form data: ', this.addBookForm.value);
 
     this._resetForm();
   }

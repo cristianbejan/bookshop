@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddBookFormComponent } from './components/add-book-form/add-book-form.component';
+import { AddBookFormComponent } from './components/admin-center/add-book-form/add-book-form.component';
+import { AdminCenterComponent } from './components/admin-center/admin-center.component';
+import { ItemsComponent } from './components/admin-center/items/items.component';
 import { LoginComponent } from './components/login/login.component';
 import { BookDetailsComponent } from './components/main/book-details/book-details.component';
 import { MainComponent } from './components/main/main.component';
 import { SearchResultsComponent } from './components/main/search-results/search-results.component';
 import { UserDashboardComponent } from './components/main/user-dashboard/user-dashboard.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: MainComponent },
@@ -14,6 +17,9 @@ const routes: Routes = [
   { path: 'search-results', component: SearchResultsComponent },
   { path: 'log-in', component: LoginComponent },
   { path: 'user-profile', component: UserDashboardComponent },
+  { path: 'admin', component: AdminCenterComponent },
+  { path: 'admin/items', component: ItemsComponent },
+  { path: 'admin/items/add-book', component: AddBookFormComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

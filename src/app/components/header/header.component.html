@@ -37,16 +37,15 @@
         </span>
       </button>
       <a
-        *ngIf="!(isLoggedIn$ | async)"
+        *ngIf="!(authService.isLoggedIn$ | async)"
         routerLink="log-in"
         class="btn btn-danger rounded-pill ms-3 px-3 py-2"
         >Conectare</a
       >
       <a
-        *ngIf="isLoggedIn$ | async"
+        *ngIf="authService.isLoggedIn$ | async"
         class="btn btn-danger rounded-pill ms-3 px-3 py-2"
         (click)="authService.signOut()"
-        routerLink="sign-in"
         >Deconectare</a
       >
     </div>

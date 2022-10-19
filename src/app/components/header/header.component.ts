@@ -28,12 +28,12 @@ export class HeaderComponent implements OnInit {
     private dataStore: DataStoreService,
     private bookStore: BookStoreService,
     private router: Router,
-    private authService: AuthService
+    public authService: AuthService
   ) {}
 
-  isLoggedIn$: Observable<boolean> = this.authService.user$
-    .asObservable()
-    .pipe(map((user) => !!user));
+  // isLoggedIn$: Observable<boolean> = this.authService.user$
+  //   .asObservable()
+  //   .pipe(map((user) => !!user));
 
   ngOnInit(): void {}
 
