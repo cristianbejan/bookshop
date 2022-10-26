@@ -1,5 +1,6 @@
 <div class="container bg-light mb-3 mt-5">
-  <h2 class="mb-2"><strong> Adauga o carte noua</strong></h2>
+  <h2 *ngIf="!id" class="mb-2"><strong> Adauga o carte noua</strong></h2>
+  <h2 *ngIf="id" class="mb-2"><strong> Editeaza cartea</strong></h2>
   <form [formGroup]="addBookForm" (ngSubmit)="onFormSubmit()">
     <label for="title" class="form-label">Titlu: </label>
     <input
@@ -45,12 +46,13 @@
       formControlName="isbn"
     />
     <label for="description" class="form-label">Descriere: </label>
-    <input
+    <textarea
+      rows="4"
       type="text"
       id="description"
       class="form-control form-control-sm"
       formControlName="description"
-    />
+    ></textarea>
     <label for="price" class="form-label">Pret: </label>
     <input
       type="number"
@@ -72,7 +74,7 @@
       class="btn btn-info mt-3"
       [disabled]="addBookForm.invalid"
     >
-      Adauga cartea
+      {{ submitBtnText }}
     </button>
     <a [routerLink]="['/admin/items']" class="btn btn-danger mt-3 ms-3"
       >Inchide</a

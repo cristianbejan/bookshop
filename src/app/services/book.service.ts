@@ -9,14 +9,17 @@ import { map, Observable } from 'rxjs';
 export class BookService {
   constructor(private http: HttpClient) {}
 
-  baseUrl = 'https://bookshop-d4231-default-rtdb.firebaseio.com/books.json';
+  baseUrl = 'https://bookshop-d4231-default-rtdb.firebaseio.com';
 
-  addNewBook(payload: Book): Observable<Book> {
-    return this.http.post<Book>(this.baseUrl, payload);
+  addNewBook(payload: Partial<Book>): Observable<Book> {
+    const url = `${this.baseUrl}/books.json`;
+    return this.http.post<Book>(url, payload);
   }
 
   getBooks(): Observable<Book[]> {
-    return this.http.get<{ [key: string]: Book }>(this.baseUrl).pipe(
+    const url = `${this.baseUrl}/books.json`;
+
+    return this.http.get<{ [key: string]: Book }>(url).pipe(
       map((responseData) => {
         const booksArray: Book[] = [];
         for (const key in responseData) {
@@ -26,5 +29,17 @@ export class BookService {
         return booksArray;
       })
     );
+  }
+
+  deleteBook(id: string): Observable<void> {
+    const url = `${this.baseUrl}/books/${id}.json`;
+
+    return this.http.delete<void>(url);
+  }
+
+  updateBook(payload: Partial<Book>, id: string): Observable<Book> {
+    const url = `${this.baseUrl}/books/${id}.json`;
+
+    return this.http.patch<Book>(url, payload);
   }
 }

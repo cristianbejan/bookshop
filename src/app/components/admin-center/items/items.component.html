@@ -54,8 +54,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let book of books">
-        <th scope="row">
-          <button class="btn btn-info btn-sm">Editeaza</button>
+        <th scope="row" class="d-flex flex-column flex-md-row gap-1">
+          <button class="btn btn-info btn-sm" (click)="editBook(book)">
+            Editeaza
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteBook(book.id)">
+            Sterge
+          </button>
         </th>
         <td>{{ book.title }}</td>
         <td>{{ book.author }}</td>

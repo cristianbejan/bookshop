@@ -1,0 +1,29 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Confirmare stergere</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">Esti sigur(a)?</div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-danger btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cancel')"
+    >
+      Renunta
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-succes"
+      (click)="modal.close('Confirm')"
+    >
+      Confirm
+    </button>
+  </div>
+</ng-template>

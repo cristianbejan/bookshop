@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminCenterComponent },
   { path: 'admin/items', component: ItemsComponent },
   { path: 'admin/items/add-book', component: AddBookFormComponent },
+  { path: 'admin/items/edit-book/:id', component: AddBookFormComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

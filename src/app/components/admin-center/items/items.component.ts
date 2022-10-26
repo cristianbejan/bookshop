@@ -3,6 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { Book } from 'src/app/core/interfaces/book.interface';
 import { BookStoreService } from 'src/app/store/book-store.service';
 import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { DataStoreService } from 'src/app/store/data-store.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-items',
@@ -12,12 +14,17 @@ import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
 export class ItemsComponent implements OnInit {
   books: Book[];
   showGoBack: boolean = false;
+  bookToBeEdited: Book = null;
 
   faCircleArrowLeft = faCircleArrowLeft;
 
   searchQuery = new FormControl('', Validators.required);
 
-  constructor(private bookStoreService: BookStoreService) {}
+  constructor(
+    private bookStoreService: BookStoreService,
+    private dataStoreService: DataStoreService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getBooks();
@@ -27,6 +34,17 @@ export class ItemsComponent implements OnInit {
     this.bookStoreService.books$.subscribe((books) => {
       this.books = books;
     });
+  }
+
+  deleteBook(id: string) {
+    console.log('delete: ', id);
+    if (confirm('Esti sigur?')) this.bookStoreService.deleteBook(id);
+  }
+
+  editBook(book: Book) {
+    this.bookToBeEdited = book;
+    this.dataStoreService.newBookToBeEdited(this.bookToBeEdited);
+    this.router.navigate(['admin/items/edit-book/', book.id]);
   }
 
   onSearch() {
