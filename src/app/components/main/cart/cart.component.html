@@ -1,0 +1,115 @@
+<section class="h-100">
+  <div *ngIf="!cartItems.length">
+    <h6 class="mt-5 mb-5">Cosul este gol...</h6>
+    <button routerLink="/home" class="btn btn-primary btn-block me-3">
+      Continua cumparaturile
+    </button>
+  </div>
+  <div *ngIf="cartItems.length" class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-10">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-normal mb-0 text-black">Cosul de cumparaturi</h3>
+          <div>
+            <button
+              *ngIf="cartItems.length"
+              class="btn btn-danger btn-sm"
+              (click)="clearCart()"
+            >
+              Goleste cosul
+            </button>
+          </div>
+        </div>
+
+        <div *ngFor="let item of cartItems" class="card rounded-3 mb-4">
+          <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div class="col-md-2 col-lg-2 col-xl-2">
+                <a [routerLink]="['/book', item.id, item.title]">
+                  <img
+                    src="{{ item.image }}"
+                    class="img-fluid rounded-3"
+                    alt="{{ item.title }}"
+                  />
+                </a>
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-3">
+                <p class="mb-2">{{ item.title }}</p>
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                <button
+                  class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                  (click)="removeQuantity(item)"
+                >
+                  <fa-icon
+                    [ngStyle]="{ color: 'red' }"
+                    [icon]="faMinus"
+                    size="1x"
+                  >
+                  </fa-icon>
+                </button>
+                <input
+                  id="form1"
+                  min="1"
+                  step="1"
+                  name="quantity"
+                  ngModel="{{ item.quantity }}"
+                  type="number"
+                  class="form-control form-control-sm"
+                />
+                <button
+                  class="btn btn-link px-2"
+                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                  (click)="increaseQuantity(item)"
+                >
+                  <fa-icon
+                    [ngStyle]="{ color: 'red' }"
+                    [icon]="faPlus"
+                    size="1x"
+                  >
+                  </fa-icon>
+                </button>
+              </div>
+              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                <h6 class="mb-0">
+                  {{ item.price * item.quantity | number: "1.2-2" }} lei
+                </h6>
+              </div>
+              <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                <button class="btn btn-link" (click)="deleteBookFromCart(item)">
+                  <fa-icon
+                    [ngStyle]="{ color: 'red' }"
+                    [icon]="faTrash"
+                    size="1x"
+                  ></fa-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-5">
+          <div class="card-body p-4">
+            <div class="float-end">
+              <p class="mb-0 me-5 d-flex align-items-center">
+                <span class="me-2">Valoare totala:</span>
+                <span class="fs-5 fw-bold"
+                  >{{ totalValue | number: "1.2-2" }} lei</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button routerLink="/home" class="btn btn-primary btn-block me-3">
+            Continua cumparaturile
+          </button>
+          <button type="button" class="btn btn-warning btn-block">
+            Plaseaza comanda
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -24,7 +24,7 @@
       </div>
     </form>
     <div class="align-self-end">
-      <button type="button" class="btn btn-link position-relative m-3">
+      <a routerLink="/cart" class="btn btn-link position-relative m-3">
         <fa-icon
           [ngStyle]="{ color: '#0F1E5B' }"
           [icon]="faCart"
@@ -33,18 +33,18 @@
         <span
           class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
         >
-          3
+          {{ totalQuantity }}
         </span>
-      </button>
+      </a>
       <a
         *ngIf="!(authService.isLoggedIn$ | async)"
         routerLink="log-in"
-        class="btn btn-danger rounded-pill ms-3 px-3 py-2"
+        class="btn btn-danger btn-sm rounded-pill ms-3 px-3 py-2"
         >Conectare</a
       >
       <a
         *ngIf="authService.isLoggedIn$ | async"
-        class="btn btn-danger rounded-pill ms-3 px-3 py-2"
+        class="btn btn-danger btn-sm rounded-pill ms-3 px-3 py-2"
         (click)="authService.signOut()"
         >Deconectare</a
       >

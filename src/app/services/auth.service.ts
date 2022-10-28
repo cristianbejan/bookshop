@@ -35,7 +35,6 @@ export class AuthService {
       photoURL: user.photoURL,
       isAdmin: user.uid === ADMIN_UID,
     });
-    this.router.navigate(['user-profile']);
   }
 
   // // Sign out,clear user$ details, and redirect to main page

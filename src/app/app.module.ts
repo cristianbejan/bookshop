@@ -25,6 +25,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
+import { CartComponent } from './components/main/cart/cart.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -52,6 +53,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     AdminCenterComponent,
     ItemsComponent,
     ConfirmModalComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

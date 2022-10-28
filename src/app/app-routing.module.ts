@@ -5,6 +5,7 @@ import { AdminCenterComponent } from './components/admin-center/admin-center.com
 import { ItemsComponent } from './components/admin-center/items/items.component';
 import { LoginComponent } from './components/login/login.component';
 import { BookDetailsComponent } from './components/main/book-details/book-details.component';
+import { CartComponent } from './components/main/cart/cart.component';
 import { MainComponent } from './components/main/main.component';
 import { SearchResultsComponent } from './components/main/search-results/search-results.component';
 import { UserDashboardComponent } from './components/main/user-dashboard/user-dashboard.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'admin/items', component: ItemsComponent },
   { path: 'admin/items/add-book', component: AddBookFormComponent },
   { path: 'admin/items/edit-book/:id', component: AddBookFormComponent },
+  { path: 'cart', component: CartComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

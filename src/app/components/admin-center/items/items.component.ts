@@ -37,7 +37,6 @@ export class ItemsComponent implements OnInit {
   }
 
   deleteBook(id: string) {
-    console.log('delete: ', id);
     if (confirm('Esti sigur?')) this.bookStoreService.deleteBook(id);
   }
 

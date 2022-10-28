@@ -3,6 +3,8 @@
     <h6 class="card-subtitle text-muted my-5">
       Alege o metoda pentru a te conecta la contul de client:
     </h6>
-    <firebase-ui></firebase-ui>
+    <firebase-ui
+      (signInSuccessWithAuthResult)="successCallback()"
+    ></firebase-ui>
   </div>
 </div>

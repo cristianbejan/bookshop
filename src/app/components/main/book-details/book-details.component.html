@@ -2,7 +2,7 @@
   <div class="row row-cols-1">
     <div class="col bg-danger p-3">
       <div
-        class="d-flex flex-column flex-md-row justify-content-center align-items-center ms-5 p-3"
+        class="d-flex flex-column flex-md-row justify-content-center align-items-center ms-md-5 p-3"
       >
         <div class="flex-shrink-0">
           <img
@@ -26,14 +26,16 @@
             <h3 class="card-text fw-bold mb-3">
               {{ book.price | number: "1.2-2" }} lei
             </h3>
-            <a class="btn btn-light rounded-pill mt-3 mb-3 px-4 py-3"
+            <a
+              (click)="addToCart(book)"
+              class="btn btn-light rounded-pill mt-3 mb-3 px-4 py-3"
               >Adauga in cos</a
             >
           </div>
         </div>
       </div>
     </div>
-    <div class="col my-2 p-5 ms-5">
+    <div class="col my-2 p-3 p-md-5 ms-md-5">
       <nav class="container-fluid mb-3">
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <button
