@@ -14,7 +14,7 @@ import { BookCardComponent } from './components/main/book-card/book-card.compone
 import { BookDetailsComponent } from './components/main/book-details/book-details.component';
 import { SearchResultsComponent } from './components/main/search-results/search-results.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/main/book-details/login/login.component';
 import { UserDashboardComponent } from './components/main/user-dashboard/user-dashboard.component';
 import { AdminCenterComponent } from './components/admin-center/admin-center.component';
 import { ItemsComponent } from './components/admin-center/items/items.component';
@@ -26,6 +26,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
 import { CartComponent } from './components/main/cart/cart.component';
+import { AddressFormComponent } from './components/main/cart/address-form/address-form.component';
+import { OrdersComponent } from './components/admin-center/orders/orders.component';
+import { OrderDetailsComponent } from './components/admin-center/orders/order-details/order-details.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -54,6 +57,9 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     ItemsComponent,
     ConfirmModalComponent,
     CartComponent,
+    AddressFormComponent,
+    OrdersComponent,
+    OrderDetailsComponent,
   ],
   imports: [
     BrowserModule,

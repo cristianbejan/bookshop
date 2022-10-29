@@ -1,12 +1,17 @@
+import { CartItem } from './cart.interface';
+
 export interface Order {
   id?: string;
-  adress: {
+  address: {
     name: string;
     street: string;
     city: string;
     county: string;
-    phone: number;
+    phone: string;
+    email: string;
+    zip: string;
+    paymentMethod: string;
   };
-  email: string;
-  books: string[];
+  books: CartItem[];
+  totalValue: number;
 }

@@ -1,0 +1,117 @@
+<section class="container py-5">
+  <div class="col-md-7 col-lg-8">
+    <h4 class="mb-3">Date facturare si adresa de livrare</h4>
+    <form class="ms-4" [formGroup]="addressForm" (ngSubmit)="onSubmitOrder()">
+      <div class="row g-3">
+        <div class="col-sm-12">
+          <label for="name" class="form-label">Nume</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder=""
+            value=""
+            required
+            formControlName="name"
+          />
+        </div>
+        <div class="col-6">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder=""
+            required
+            formControlName="email"
+          />
+        </div>
+        <div class="col-6">
+          <label for="phone" class="form-label">Telefon</label>
+          <input
+            type="string"
+            class="form-control"
+            id="phone"
+            required
+            formControlName="phone"
+          />
+        </div>
+        <div class="col-12">
+          <label for="street" class="form-label">Adresa</label>
+          <input
+            type="text"
+            class="form-control"
+            id="street"
+            required
+            formControlName="street"
+          />
+        </div>
+        <div class="col-md-5">
+          <label for="city" class="form-label">Localitate</label>
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            required
+            formControlName="city"
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="county" class="form-label">Judet</label>
+          <input
+            type="text"
+            class="form-control"
+            id="county"
+            required
+            formControlName="county"
+          />
+        </div>
+        <div class="col-md-3">
+          <label for="zip" class="form-label">Codul postal</label>
+          <input
+            type="text"
+            class="form-control"
+            id="zip"
+            placeholder=""
+            required
+            formControlName="zip"
+          />
+        </div>
+      </div>
+
+      <hr class="my-4" />
+
+      <h4 class="mb-3">Alege metoda de plata</h4>
+
+      <div class="my-3">
+        <div class="form-check">
+          <input
+            id="cash"
+            name="paymentMethod"
+            type="radio"
+            class="form-check-input"
+            checked
+            required
+            formControlName="paymentMethod"
+            value="ramburs"
+          />
+          <label class="form-check-label" for="cash">Ramburs</label>
+        </div>
+      </div>
+
+      <hr class="my-4" />
+
+      <p *ngIf="addressForm.invalid" class="text-muted fst-italic fs-6 my-3">
+        * Pentru a putea plasa comanda trebuie completate toate campurile din
+        formular
+      </p>
+      <button
+        [disabled]="addressForm.invalid"
+        class="w-100 btn btn-danger"
+        type="submit"
+      >
+        Plaseaza comanda
+      </button>
+    </form>
+  </div>
+</section>

@@ -18,6 +18,9 @@ export class CartComponent implements OnInit {
   cartItems: CartItem[];
   totalValue: number;
 
+  orderCheckout: boolean = false;
+  checkoutBtnText: string = 'Comanda';
+
   ngOnInit(): void {
     this.cartStoreService.cart$.subscribe((items) => (this.cartItems = items));
     this.getTotalValue();
@@ -31,6 +34,7 @@ export class CartComponent implements OnInit {
   clearCart(): void {
     this.cartStoreService.clearCart();
     this.getTotalValue();
+    this.orderCheckout = false;
   }
 
   getTotalValue(): number {
@@ -47,5 +51,12 @@ export class CartComponent implements OnInit {
   removeQuantity(book: CartItem): void {
     this.cartStoreService.removeQuantity(book);
     this.getTotalValue();
+  }
+
+  onClickOrderBtn() {
+    this.orderCheckout = !this.orderCheckout;
+    this.orderCheckout
+      ? (this.checkoutBtnText = 'Inchide formularul')
+      : (this.checkoutBtnText = 'Comanda');
   }
 }

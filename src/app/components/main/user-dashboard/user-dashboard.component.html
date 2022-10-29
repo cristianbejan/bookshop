@@ -1,4 +1,12 @@
 <div class="container">
+  <nav class="mb-5" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/home" class="link-danger">Acasa</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Contul meu</li>
+    </ol>
+  </nav>
   <div *ngIf="userData" class="card border-secondary mb-3" style="height: 45vh">
     <div class="row g-0 h-100">
       <div class="col-md-4 d-flex justify-content-center align-items-center">

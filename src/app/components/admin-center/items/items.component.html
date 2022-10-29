@@ -1,7 +1,16 @@
 <div class="container">
+  <nav class="mb-5" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/admin" class="link-danger">Acasa</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Produse</li>
+    </ol>
+  </nav>
+
   <a
     [routerLink]="['/admin/items/add-book']"
-    class="btn btn-outline-success mb-3"
+    class="btn btn-outline-success mb-3 me-5 float-end"
     >Adauga o carte noua</a
   >
 </div>

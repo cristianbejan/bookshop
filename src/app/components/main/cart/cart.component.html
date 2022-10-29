@@ -1,4 +1,12 @@
-<section class="h-100">
+<section class="h-100" style="min-height: 50vh">
+  <nav class="mb-5" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/home" class="link-danger">Acasa</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Cos</li>
+    </ol>
+  </nav>
   <div *ngIf="!cartItems.length">
     <h6 class="mt-5 mb-5">Cosul este gol...</h6>
     <button routerLink="/home" class="btn btn-primary btn-block me-3">
@@ -105,11 +113,19 @@
           <button routerLink="/home" class="btn btn-primary btn-block me-3">
             Continua cumparaturile
           </button>
-          <button type="button" class="btn btn-warning btn-block">
-            Plaseaza comanda
+          <button
+            type="button"
+            class="btn btn-warning btn-block"
+            (click)="onClickOrderBtn()"
+          >
+            {{ checkoutBtnText }}
           </button>
         </div>
       </div>
     </div>
   </div>
 </section>
+<app-address-form
+  *ngIf="orderCheckout"
+  [cartItems]="cartItems"
+></app-address-form>

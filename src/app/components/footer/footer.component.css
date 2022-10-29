@@ -1,4 +1,5 @@
-.list-group a:hover {
+.list-group,
+.nav-item a:hover {
   color: #dc3545 !important;
 }
 

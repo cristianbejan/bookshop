@@ -65,24 +65,25 @@ export class AddBookFormComponent implements OnInit {
   onFormSubmit() {
     if (!this.id) {
       this.bookStore.addNewBook(this.addBookForm.value);
-      this._resetForm();
+      // this._resetForm();
+      this.addBookForm.reset();
     } else {
       this.bookStore.updateBook(this.addBookForm.value, this.id);
       this.router.navigate(['/admin/items']);
     }
   }
 
-  private _resetForm() {
-    this.addBookForm.reset({
-      title: '',
-      author: '',
-      publisher: '',
-      releaseYear: '',
-      pageNumber: '',
-      isbn: '',
-      description: '',
-      price: '',
-      imageUrl: '',
-    });
-  }
+  // private _resetForm() {
+  //   this.addBookForm.reset({
+  //     title: '',
+  //     author: '',
+  //     publisher: '',
+  //     releaseYear: '',
+  //     pageNumber: '',
+  //     isbn: '',
+  //     description: '',
+  //     price: '',
+  //     imageUrl: '',
+  //   });
+  // }
 }

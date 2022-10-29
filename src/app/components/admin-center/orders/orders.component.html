@@ -1,0 +1,40 @@
+<section class="container" style="min-height: 50vh">
+  <nav class="mb-5" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/admin" class="link-danger">Acasa</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Comenzi</li>
+    </ol>
+  </nav>
+  <h3>Lista comenzi</h3>
+  <div class="table-responsive">
+    <table
+      class="table table-light table-striped table-hover align-middle table-sm mt-2"
+    >
+      <thead class="table-warning">
+        <tr>
+          <th scope="col">Nume client</th>
+          <th scope="col">Valoare</th>
+          <th scope="col">Plata</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>
+            <a
+              [routerLink]="['order-details/', order.id]"
+              class="text-decoration-none text-danger"
+            >
+              {{ order.address.name }}</a
+            >
+          </td>
+          <td>{{ order.totalValue | number: "1.2-2" }}</td>
+          <td>{{ order.address.paymentMethod }}</td>
+          <td class="text-success">Finalizata</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
