@@ -15,8 +15,8 @@
       >
         <div class="flex-shrink-0">
           <img
-            src="{{ book.imageUrl }}"
-            alt="{{ book.title }}"
+            src="{{ book?.imageUrl }}"
+            alt="{{ book?.title }}"
             class="text-start img-fluid"
             style="width: 340px"
           />
@@ -26,14 +26,14 @@
           style="width: 100%"
         >
           <div class="card-body">
-            <h1 class="card-title fw-bold mb-3">{{ book.title }}</h1>
+            <h1 class="card-title fw-bold mb-3">{{ book?.title }}</h1>
             <p class="lead card-subtitle text-opacity-25 mb-5 mb-3">
               de
 
-              {{ book.author }}
+              {{ book?.author }}
             </p>
             <h3 class="card-text fw-bold mb-3">
-              {{ book.price | number: "1.2-2" }} lei
+              {{ book?.price | number: "1.2-2" }} lei
             </h3>
             <a
               (click)="addToCart(book)"
@@ -81,7 +81,7 @@
           aria-labelledby="nav-description-tab"
           tabindex="0"
         >
-          {{ book.description }}
+          {{ book?.description }}
         </div>
         <div
           class="tab-pane fade"
@@ -92,16 +92,16 @@
         >
           <ul class="list-group list-group-flush bg-light w-50">
             <li class="list-group-item list-group-item-light">
-              Editura: {{ book.publisher }}
+              Editura: {{ book?.publisher }}
             </li>
             <li class="list-group-item list-group-item-light">
-              ISBN: {{ book.isbn }}
+              ISBN: {{ book?.isbn }}
             </li>
             <li class="list-group-item list-group-item-light">
-              An publicare: {{ book.releaseYear }}
+              An publicare: {{ book?.releaseYear }}
             </li>
             <li class="list-group-item list-group-item-light">
-              Numar pagini: {{ book.pageNumber }}
+              Numar pagini: {{ book?.pageNumber }}
             </li>
           </ul>
         </div>

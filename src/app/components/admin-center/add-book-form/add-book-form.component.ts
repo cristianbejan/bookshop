@@ -47,15 +47,15 @@ export class AddBookFormComponent implements OnInit {
         this.submitBtnText = FormSubmitState.EDIT;
 
         this.addBookForm.patchValue({
-          title: book.title,
-          author: book.author,
-          publisher: book.publisher,
-          releaseYear: book.releaseYear,
-          pageNumber: book.pageNumber,
-          isbn: book.isbn,
-          description: book.description,
-          price: book.price,
-          imageUrl: book.imageUrl,
+          title: book?.title,
+          author: book?.author,
+          publisher: book?.publisher,
+          releaseYear: book?.releaseYear,
+          pageNumber: book?.pageNumber,
+          isbn: book?.isbn,
+          description: book?.description,
+          price: book?.price,
+          imageUrl: book?.imageUrl,
         });
       } else {
         this.submitBtnText = FormSubmitState.ADD;

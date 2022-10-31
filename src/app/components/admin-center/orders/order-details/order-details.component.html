@@ -14,26 +14,26 @@
   </nav>
 
   <h5>
-    Detalii comanda <span class="h4 fw-bold"> {{ order.address.name }} </span>
+    Detalii comanda <span class="h4 fw-bold"> {{ order?.address.name }} </span>
   </h5>
   <div class="row d-flex justify-content-center align-items-center h-100 mt-3">
     <div class="col-10">
       <div class="card rounded-3 mb-4">
         <div class="card-body p-4">
           <h6 class="card-subtitle mb-2 text-muted">
-            <span class="fw-bold"> Email:</span> {{ order.address.email }}
+            <span class="fw-bold"> Email:</span> {{ order?.address.email }}
           </h6>
           <h6 class="card-subtitle mb-2 text-muted">
-            <span class="fw-bold"> Telefon: </span>{{ order.address.phone }}
+            <span class="fw-bold"> Telefon: </span>{{ order?.address.phone }}
           </h6>
           <h6 class="card-subtitle mb-2 text-muted">
             <span class="fw-bold"> Adresa:</span>
-            {{ order.address.street }}, {{ order.address.city }},
-            {{ order.address.county }}, {{ order.address.zip }}
+            {{ order?.address.street }}, {{ order?.address.city }},
+            {{ order?.address.county }}, {{ order?.address.zip }}
           </h6>
           <h6 class="card-subtitle mb-2 text-muted">
             <span class="fw-bold"> Plata:</span>
-            {{ order.address.paymentMethod }}
+            {{ order?.address.paymentMethod }}
           </h6>
           <div>
             <h6 class="card-subtitle mb-2 text-muted">
@@ -50,17 +50,19 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let book of order.books">
+                <tr *ngFor="let book of order?.books">
                   <td class="text-muted">{{ book.title }}</td>
                   <td class="text-muted">{{ book.quantity }}</td>
-                  <td class="text-muted">{{ book.price | number: "1.2-2" }}</td>
+                  <td class="text-muted">
+                    {{ book.price | number: "1.2-2" }}
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
           <h6 class="card-subtitle mb-2 text-muted float-end me-5">
             <span class="fw-bold"> Valoare totala:</span>
-            {{ order.totalValue }}
+            {{ order?.totalValue }}
           </h6>
         </div>
       </div>
