@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
@@ -15,9 +15,8 @@ import { DataStoreService } from 'src/app/store/data-store.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   faCart = faCartShopping;
   faMagnifying = faMagnifyingGlass;
 
@@ -47,12 +46,6 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     public authService: AuthService
   ) {}
-
-  // isLoggedIn$: Observable<boolean> = this.authService.user$
-  //   .asObservable()
-  //   .pipe(map((user) => !!user));
-
-  ngOnInit(): void {}
 
   onSearch() {
     if (this.searchQuery.value) {

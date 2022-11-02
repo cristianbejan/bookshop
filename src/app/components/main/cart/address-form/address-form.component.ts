@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CartItem } from 'src/app/core/interfaces/cart.interface';
 import { Order } from 'src/app/core/interfaces/order.interface';
@@ -8,12 +8,13 @@ import { CartStoreService } from 'src/app/store/cart-store.service';
 @Component({
   selector: 'app-address-form',
   templateUrl: './address-form.component.html',
-  styleUrls: ['./address-form.component.css'],
 })
 export class AddressFormComponent implements OnInit {
   @Input()
   cartItems: CartItem[];
   totalValue: number;
+
+  @Output() closeForm: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private cartStoreService: CartStoreService,
@@ -55,5 +56,6 @@ export class AddressFormComponent implements OnInit {
 
     this.addressForm.reset();
     this.cartStoreService.clearCart();
+    this.closeForm.emit();
   }
 }

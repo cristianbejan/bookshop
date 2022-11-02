@@ -1,110 +1,50 @@
-<div class="container">
-  <footer
-    class="d-flex flex-wrap justify-content-center justify-content-lg-between align-items-center py-3 my-4 border-top"
+<footer
+  class="container d-flex flex-wrap justify-content-center justify-content-lg-between align-items-center py-3 my-4 border-top"
+>
+  <p class="col-md-4 mb-3 mb-lg-0 me-4 me-lg-0 text-muted text-center">
+    Copyright &copy; BookShop 2022 Toate drepturile rezervate
+  </p>
+
+  <div
+    id="footer-logo"
+    class="d-flex justify-content-center align-items-center gap-3 mt-2 mb-3 mb-lg-0"
   >
-    <p class="col-md-4 mb-3 mb-lg-0 me-4 me-lg-0 text-muted text-center">
-      Copyright &copy; BookShop 2022 Toate drepturile rezervate
-    </p>
-
-    <div
-      id="footer-logo"
-      class="d-flex justify-content-center align-items-center gap-3 mt-2 mb-3 mb-lg-0"
-    >
-      <a href="https://www.facebook.com/" class="p-2" target="_blank">
-        <fa-icon [icon]="faFacebook" size="1x"></fa-icon>
+    <a href="https://www.facebook.com/" class="p-2" target="_blank">
+      <fa-icon [icon]="faFacebook" size="1x"></fa-icon>
+    </a>
+    <span>
+      <a href="https://www.instagram.com/" class="p-2" target="_blank">
+        <fa-icon [icon]="faInstagram" size="1x"></fa-icon>
       </a>
-      <span>
-        <a href="https://www.instagram.com/" class="p-2" target="_blank">
-          <fa-icon [icon]="faInstagram" size="1x"></fa-icon>
-        </a>
-      </span>
-      <a href="https://twitter.com/" class="p-2" target="_blank">
-        <fa-icon [icon]="faTwitter" size="1x"></fa-icon>
-      </a>
-      <a href="https://www.linkedin.com/" class="p-2" target="_blank">
-        <fa-icon [icon]="faLinkedin" size="1x"></fa-icon>
-      </a>
-      <a href="https://www.youtube.com/" class="p-2" target="_blank">
-        <fa-icon [icon]="faYoutube" size="1x"></fa-icon>
-      </a>
-    </div>
-
-    <ul class="nav col-md-4 justify-content-center align-items-center">
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-muted">Acasa</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-muted">Despre noi</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-muted">Contact</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/user-profile" class="nav-link px-2 text-muted"
-          >Contul meu</a
-        >
-      </li>
-      <li class="nav-item">
-        <a routerLink="/admin" class="nav-link px-2 text-muted">Administrare</a>
-      </li>
-    </ul>
-  </footer>
-</div>
-
-<!-- <footer class="container">
-  <hr />
-  <div class="row d-flex flex-row-reverse">
-    <div class="col">
-      <div class="list-group list-group-flush w-50 ms-5">
-        <a
-          class="list-group-item list-group-item-action bg-light text-secondary"
-          >Despre noi</a
-        >
-        <a
-          class="list-group-item list-group-item-action bg-light text-secondary"
-          >Contact</a
-        >
-        <a
-          routerLink="/user-profile"
-          class="list-group-item list-group-item-action bg-light text-secondary"
-          >Contul meu</a
-        >
-        <a
-          routerLink="/admin"
-          class="list-group-item list-group-item-action bg-light text-secondary"
-          >Administrare</a
-        >
-        <div></div>
-      </div>
-    </div>
-    <div class="vr p-0"></div>
-    <div
-      class="col d-flex flex-column justify-content-center align-items-start ms-5"
-      id="footer-logo"
-    >
-      <img src="../../../assets/img/logo_f.gif" alt="" class="img-fluid ms-4" />
-      <div class="d-flex justify-content-center align-items-center gap-3 mt-2">
-        <a href="https://www.facebook.com/" class="p-2" target="_blank">
-          <fa-icon [icon]="faFacebook" size="1x"></fa-icon>
-        </a>
-        <span>
-          <a href="https://www.instagram.com/" class="p-2" target="_blank">
-            <fa-icon [icon]="faInstagram" size="1x"></fa-icon>
-          </a>
-        </span>
-        <a href="https://twitter.com/" class="p-2" target="_blank">
-          <fa-icon [icon]="faTwitter" size="1x"></fa-icon>
-        </a>
-        <a href="https://www.linkedin.com/" class="p-2" target="_blank">
-          <fa-icon [icon]="faLinkedin" size="1x"></fa-icon>
-        </a>
-        <a href="https://www.youtube.com/" class="p-2" target="_blank">
-          <fa-icon [icon]="faYoutube" size="1x"></fa-icon>
-        </a>
-      </div>
-    </div>
+    </span>
+    <a href="https://twitter.com/" class="p-2" target="_blank">
+      <fa-icon [icon]="faTwitter" size="1x"></fa-icon>
+    </a>
+    <a href="https://www.linkedin.com/" class="p-2" target="_blank">
+      <fa-icon [icon]="faLinkedin" size="1x"></fa-icon>
+    </a>
+    <a href="https://www.youtube.com/" class="p-2" target="_blank">
+      <fa-icon [icon]="faYoutube" size="1x"></fa-icon>
+    </a>
   </div>
-  <div class="d-flex justify-content-center mt-4">
-    <p>Copyright &copy; 2022 Toate drepturile rezervate</p>
-  </div>
-</footer> -->
+
+  <ul class="nav col-md-4 justify-content-center align-items-center">
+    <li class="nav-item">
+      <a href="#" class="nav-link px-2 text-muted">Acasa</a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link px-2 text-muted">Despre noi</a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link px-2 text-muted">Contact</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/user-profile" class="nav-link px-2 text-muted"
+        >Contul meu</a
+      >
+    </li>
+    <li class="nav-item">
+      <a routerLink="/admin" class="nav-link px-2 text-muted">Administrare</a>
+    </li>
+  </ul>
+</footer>

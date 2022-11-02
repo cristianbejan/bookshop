@@ -12,11 +12,9 @@ enum FormSubmitState {
 @Component({
   selector: 'app-add-book-form',
   templateUrl: './add-book-form.component.html',
-  styleUrls: ['./add-book-form.component.css'],
 })
 export class AddBookFormComponent implements OnInit {
   submitBtnText: string = FormSubmitState.ADD;
-  // bookToBeEdited: Book;
   id: string;
 
   addBookForm = new FormGroup({
@@ -41,8 +39,6 @@ export class AddBookFormComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.dataStoreService.currentBookToBeEdited.subscribe((book) => {
-      // this.bookToBeEdited = book;
-
       if (this.id) {
         this.submitBtnText = FormSubmitState.EDIT;
 
@@ -65,25 +61,10 @@ export class AddBookFormComponent implements OnInit {
   onFormSubmit() {
     if (!this.id) {
       this.bookStore.addNewBook(this.addBookForm.value);
-      // this._resetForm();
       this.addBookForm.reset();
     } else {
       this.bookStore.updateBook(this.addBookForm.value, this.id);
       this.router.navigate(['/admin/items']);
     }
   }
-
-  // private _resetForm() {
-  //   this.addBookForm.reset({
-  //     title: '',
-  //     author: '',
-  //     publisher: '',
-  //     releaseYear: '',
-  //     pageNumber: '',
-  //     isbn: '',
-  //     description: '',
-  //     price: '',
-  //     imageUrl: '',
-  //   });
-  // }
 }

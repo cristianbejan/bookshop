@@ -18,7 +18,6 @@ import { LoginComponent } from './components/main/book-details/login/login.compo
 import { UserDashboardComponent } from './components/main/user-dashboard/user-dashboard.component';
 import { AdminCenterComponent } from './components/admin-center/admin-center.component';
 import { ItemsComponent } from './components/admin-center/items/items.component';
-import { ConfirmModalComponent } from './components/admin-center/confirm-modal/confirm-modal.component';
 
 import { firebase, FirebaseUIModule } from 'firebaseui-angular';
 import { AngularFireModule } from '@angular/fire/compat';
@@ -55,7 +54,6 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     UserDashboardComponent,
     AdminCenterComponent,
     ItemsComponent,
-    ConfirmModalComponent,
     CartComponent,
     AddressFormComponent,
     OrdersComponent,

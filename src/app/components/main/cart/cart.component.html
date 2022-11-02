@@ -13,7 +13,7 @@
       Continua cumparaturile
     </button>
   </div>
-  <div *ngIf="cartItems.length" class="container h-100 py-5">
+  <main *ngIf="cartItems.length" class="container h-100 py-5">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-10">
         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -123,9 +123,10 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </section>
 <app-address-form
   *ngIf="orderCheckout"
   [cartItems]="cartItems"
+  (closeForm)="orderCheckout = false"
 ></app-address-form>

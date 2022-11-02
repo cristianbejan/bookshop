@@ -1,4 +1,4 @@
-<div class="container bg-light mb-3 mt-5">
+<section class="container bg-light mb-3 mt-5">
   <h2 *ngIf="!id" class="mb-2"><strong> Adauga o carte noua</strong></h2>
   <h2 *ngIf="id" class="mb-2"><strong> Editeaza cartea</strong></h2>
   <form [formGroup]="addBookForm" (ngSubmit)="onFormSubmit()">
@@ -80,4 +80,4 @@
       >Inchide</a
     >
   </form>
-</div>
+</section>

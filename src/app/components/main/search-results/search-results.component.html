@@ -1,4 +1,4 @@
-<div class="container">
+<section class="container">
   <nav class="mb-5" aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
@@ -9,7 +9,7 @@
   </nav>
 
   <h4 class="mb-4">Rezultatele cautarii:</h4>
-  <div
+  <main
     class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-7 mt-3 mb-3"
   >
     <div
@@ -23,5 +23,5 @@
       *ngFor="let book of filteredBooks"
       [book]="book"
     ></app-book-card>
-  </div>
-</div>
+  </main>
+</section>
